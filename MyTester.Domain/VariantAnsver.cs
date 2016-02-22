@@ -20,6 +20,8 @@ namespace Domain
 
         public int QueryId { get; set; }
 
+        public bool IsSelected { get; set; }
+
         
         internal virtual Query Query { get; set; }
     }

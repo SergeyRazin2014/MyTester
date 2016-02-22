@@ -9,13 +9,14 @@
 
                     <table class="table">
                         <tr ng-repeat="variant in currentQuery.VariantsAnsver">
-                            <td><input type="checkbox"/> </td>
+                            <td><input type="checkbox" ng-model="variant.IsSelected" /> </td>
                             <td>{{variant.Text}}</td>
                         </tr>
 
                     </table>
 
-                    <button  class="btn btn-lg btn-primary btn-block" type="button" ng-click="next()">ДАЛЕЕ</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="next()" ng-hide="!isNextVisible">ДАЛЕЕ</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="button" ng-hide="isNextVisible" ng-click="examFinish()">ЗАВЕРШИТЬ</button>
 
                 </div>
             </div>

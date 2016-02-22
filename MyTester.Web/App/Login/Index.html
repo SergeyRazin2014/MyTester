@@ -10,13 +10,12 @@
                 <label for="Surname">Имя</label>
                 <input type="text" id="FirstName" class="form-control" ng-model="person.Firstname">
                 <label for="Surname">Отчество</label>
-                <input type="text" id="Patronomyc" class="form-control" ng-model="person.Patronomyc">
+                <input type="text" id="Patronymic" class="form-control" ng-model="person.Patronymic">
 
                 <br/>
                 <br/>
                 
-                <a href="#/Exam" class="btn btn-lg btn-primary btn-block" role="button" ng-click="startexam()" ng-disabled="isNotFullName()">go exament</a>
-                <!--<button href="../Exam/Index.html" class="btn btn-lg btn-primary btn-block" type="button" ng-click="startExam()" ng-disabled="isNotFullName()">Начать экзамен</button>-->
+                <a href="#/Exam" class="btn btn-lg btn-primary btn-block" role="button" ng-click="saveFullName()" ng-disabled="isNotFullName()">go exament</a>
                 
             </form>
         </div>
