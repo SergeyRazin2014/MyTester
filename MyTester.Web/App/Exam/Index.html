@@ -1,9 +1,25 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
+﻿<div class="container" ng-controller="ExamCtrl">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{currentQuery.Text}}</div>
+                <div class="panel-body">
+                    <!--Panel content-->
 
-</body>
-</html>
+                    <table class="table">
+                        <tr ng-repeat="variant in currentQuery.VariantsAnsver">
+                            <td><input type="checkbox"/> </td>
+                            <td>{{variant.Text}}</td>
+                        </tr>
+
+                    </table>
+
+                    <button  class="btn btn-lg btn-primary btn-block" type="button" ng-click="next()">ДАЛЕЕ</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>

@@ -105,7 +105,6 @@
     <Content Include="App\Index.html" />
     <Content Include="App\Login\Index.html" />
     <Content Include="App\Login\loginCtrl.js" />
-    <Content Include="App\_angular\services\clientSettingsService.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -149,6 +148,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\_angular\services\" />
     <Folder Include="App_Data\" />
     <Folder Include="Views\Query\" />
   </ItemGroup>

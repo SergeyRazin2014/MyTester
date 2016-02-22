@@ -13,8 +13,11 @@
                 <input type="text" id="Patronomyc" class="form-control" ng-model="person.Patronomyc">
 
                 <br/>
-                <br />
-                <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="startExam()" ng-disabled="isFullName()">Начать экзамен</button>
+                <br/>
+                
+                <a href="#/Exam" class="btn btn-lg btn-primary btn-block" role="button" ng-click="startexam()" ng-disabled="isNotFullName()">go exament</a>
+                <!--<button href="../Exam/Index.html" class="btn btn-lg btn-primary btn-block" type="button" ng-click="startExam()" ng-disabled="isNotFullName()">Начать экзамен</button>-->
+                
             </form>
         </div>
         <div class="col-lg-3"></div>
