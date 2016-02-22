@@ -1,0 +1,39 @@
+﻿
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <!--библиотеки-->
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.min.js"></script>
+    <script src="../Scripts/underscore-min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+    <!--модули-->
+    <script src="app.js"></script>
+
+    <!--сервисы-->
+    <script src="_angular/services/clientSettingsService.js"></script>
+
+    <!--контроллеры-->
+    <script src="Login/loginCtrl.js"></script>
+
+    <!--стили-->
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+    <title></title>
+</head>
+
+<body>
+
+<h1>hello app</h1>
+
+    <nav><a href="#/Login">Вопрос</a></nav> 
+
+<div ng-app="app" ng-view>
+
+</div>
+
+</body>
+</html>
