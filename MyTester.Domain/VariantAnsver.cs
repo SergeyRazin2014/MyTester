@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+
+
 
 namespace Domain
 {
+    
     public class VariantAnsver
     {
         public int Id { get; set; }
@@ -16,6 +20,7 @@ namespace Domain
 
         public int QueryId { get; set; }
 
-        public virtual Query Query { get; set; }
+        
+        internal virtual Query Query { get; set; }
     }
 }

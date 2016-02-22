@@ -16,7 +16,7 @@ namespace MyTester.Controllers
             _testRepo = testRepo;//☻
         }
 
-        // GET: Home
+        
         public ActionResult Index()
         {
             //return View();

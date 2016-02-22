@@ -11,6 +11,6 @@ namespace Domain
         public int Id { get; set; }
         public string Text { get; set; }
 
-        public List<VariantAnsver> VariantsAnsver { get; set; }
+        public virtual List<VariantAnsver> VariantsAnsver { get; set; }
     }
 }

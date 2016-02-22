@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DAL.Abstract;
+using DAL.Repositories;
+using MyTester.DAL;
 using MyTester.Models;
 using Ninject;
 
@@ -20,7 +24,10 @@ namespace MyTester.Infrastructure
 
         private void AddBindings()
         {
+            _kernel.Bind<MyContext>().ToSelf().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings[0].ConnectionString);
             _kernel.Bind<ITestRepo>().To<TestRepo>();
+            _kernel.Bind<IQueryRepo>().To<QueryRepo>();
+            _kernel.Bind<IPersonRepo>().To<PersonRepo>();
         }
 
         public object GetService(Type serviceType)

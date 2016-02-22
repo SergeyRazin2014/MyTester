@@ -9,13 +9,13 @@ using MyTester.DAL;
 
 namespace DAL.Repositories
 {
-    public class QueryRepo:IQueryRepo
+    public class QueryRepo : IQueryRepo
     {
         private MyContext _db;
 
         public QueryRepo(MyContext db)
         {
-            _db = db;   
+            _db = db;
         }
 
         public void Add(Query query)
@@ -26,7 +26,7 @@ namespace DAL.Repositories
 
         public List<Query> GetAll()
         {
-            var res = _db.QuerySet.ToList();
+            var res = _db.QuerySet.Include("VariantsAnsver").ToList();
             return res;
         }
     }

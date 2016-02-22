@@ -49,6 +49,7 @@
     <Compile Include="Abstract\IPersonRepo.cs" />
     <Compile Include="Abstract\IQueryRepo.cs" />
     <Compile Include="MyContext.cs" />
+    <Compile Include="MyDbInicializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\PersonRepo.cs" />
     <Compile Include="Repositories\QueryRepo.cs" />

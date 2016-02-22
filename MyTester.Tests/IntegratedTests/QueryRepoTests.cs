@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Entity;
-using System.Linq;
-using DAL.Repositories;
+﻿using DAL.Repositories;
 using Domain;
 using MyTester.DAL;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Entity;
+using System.Linq;
 
 namespace MyTester.IntegratedTests.IntegratedTests
 {
@@ -44,13 +44,9 @@ namespace MyTester.IntegratedTests.IntegratedTests
             QueryRepo repo = new QueryRepo(_db);
             repo.Add(query);
 
-
             var querysList = repo.GetAll();
 
             Assert.AreEqual(1, querysList.Count);
-
-
-
         }
 
         [Test]
@@ -69,19 +65,15 @@ namespace MyTester.IntegratedTests.IntegratedTests
             QueryRepo repo = new QueryRepo(_db);
             repo.Add(query);
 
-
             var querysList = repo.GetAll();
 
             Assert.AreEqual(3, querysList.First().VariantsAnsver.Count);
-            
-            
+
             var variantAnswersTextList = querysList.First().VariantsAnsver.Select(e => e.Text);
 
             Assert.That(variantAnswersTextList, Has.Member("variant1"));
             Assert.That(variantAnswersTextList, Has.Member("variant2"));
             Assert.That(variantAnswersTextList, Has.Member("variant3"));
-
         }
-
     }
 }
