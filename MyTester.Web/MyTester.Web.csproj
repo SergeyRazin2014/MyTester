@@ -131,7 +131,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Infrastructure\QueryHelper.cs" />
     <Compile Include="Models\PersonsQuerysAnswer.cs" />
+    <Compile Include="Models\QueryAveragePoint.cs" />
+    <Compile Include="Models\SummaryReportInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

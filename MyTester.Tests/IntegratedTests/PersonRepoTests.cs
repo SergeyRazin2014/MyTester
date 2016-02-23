@@ -1,21 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Entity;
-using DAL.Repositories;
+﻿using DAL.Repositories;
 using Domain;
 using MyTester.DAL;
 using MyTester.Domain;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Entity;
+using System.Linq;
 
 namespace MyTester.IntegratedTests.IntegratedTests
 {
     [TestFixture]
-    class PersonRepoTests
+    internal class PersonRepoTests
     {
-
-
         private MyContext _db;
-
 
         [SetUp]
         public void Start()
@@ -30,7 +28,6 @@ namespace MyTester.IntegratedTests.IntegratedTests
             if (Database.Exists(_db.Database.Connection.ConnectionString))
                 _db.Database.Delete();
         }
-
 
         [Test]
         public void AddPerson_Simple()
@@ -106,12 +103,12 @@ namespace MyTester.IntegratedTests.IntegratedTests
             pers1.Patronymic = "отчество1";
 
             PersonsAnswers personAnswers1 = new PersonsAnswers();
-            personAnswers1.Person = pers1;
+            personAnswers1.PersonId = pers1.Id;
             personAnswers1.Query = query1;
             personAnswers1.VariantAnsver = variant11;
 
             PersonsAnswers personAnswers2 = new PersonsAnswers();
-            personAnswers2.Person = pers1;
+            personAnswers2.PersonId = pers1.Id;
             personAnswers2.Query = query2;
             personAnswers2.VariantAnsver = variant111;
 
@@ -123,14 +120,9 @@ namespace MyTester.IntegratedTests.IntegratedTests
 
             var resultPerosn = personRepo.GetAll();
 
-            Assert.AreEqual(1,resultPerosn.Count);
+            Assert.AreEqual(1, resultPerosn.Count);
 
-            Assert.AreEqual(2,pers1.PersonsAnswers.Count);
-
-
-
-
-
+            Assert.AreEqual(2, resultPerosn.First().PersonsAnswers.Count);
         }
     }
 }

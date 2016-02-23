@@ -1,34 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using DAL.Abstract;
-using Domain;
+﻿using DAL.Abstract;
 using MyTester.Domain;
-using MyTester.Models;
+using System;
+using System.Web.Mvc;
 
 namespace MyTester.Controllers
 {
     public class PersonController : Controller
     {
-        private IPersonRepo _db;
+        private IPersonRepo _personRepo;
 
-        public PersonController(IPersonRepo db)
+        public PersonController(IPersonRepo personRepo)
         {
-            _db = db;
+            _personRepo = personRepo;
         }
 
         public void SavePersonsExam(Person person)
         {
-            _db.Add(person);
+            _personRepo.Add(person);
         }
 
         public ActionResult GetAll()
         {
-            var res = _db.GetAll();
+            var res = _personRepo.GetAll();
 
-            return Json(res,JsonRequestBehavior.AllowGet);
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetPersonsWithRightAnswers()
+        {
+            throw new NotImplementedException();
         }
     }
 }
