@@ -129,8 +129,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Models\ITestRepo.cs" />
-    <Compile Include="Models\TestRepo.cs" />
+    <Compile Include="Models\PersonsQuerysAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

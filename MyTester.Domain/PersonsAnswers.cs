@@ -12,7 +12,7 @@ namespace Domain
     public class PersonsAnswers
     {
         [Key, Column(Order = 0)]
-        public int PerosnId { get; set; }
+        public int PersonId { get; set; }
 
         public virtual Person Person { get; set; }
 

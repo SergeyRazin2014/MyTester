@@ -18,7 +18,7 @@ namespace MyTester.Domain
         [Required]
         public string Patronymic { get; set; }
 
-        public virtual List<PersonsAnswers> Answers { get; set; } 
+        public virtual List<PersonsAnswers> PersonsAnswers { get; set; } 
 
 
     }
