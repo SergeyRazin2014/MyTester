@@ -22,6 +22,7 @@ namespace MyTester.DAL
             {
                 var query1 = new Query();
                 query1.Text = "Какую форму имеет планета земля";
+                query1.Point = 1;
                 var variant11 = new VariantAnsver();
                 variant11.Text = "круг";
                 var variant22 = new VariantAnsver();
@@ -35,6 +36,7 @@ namespace MyTester.DAL
 
                 var query2 = new Query();
                 query2.Text = "К какому семейству относится арбуз";
+                query2.Point = 2;
                 var variant111 = new VariantAnsver();
                 variant111.Text = "ягода";
                 variant111.IsRight = true;
@@ -48,6 +50,7 @@ namespace MyTester.DAL
 
                 var query3 = new Query();
                 query3.Text = "Какую цель преследовали США применив ядерное оружие проитв Японии?";
+                query3.Point = 3;
                 var variant1111 = new VariantAnsver();
                 variant1111.Text = "Сохранить жизни людей";
                 var variant2222 = new VariantAnsver();

@@ -3,6 +3,9 @@
 
 <head>
 
+    <!--стили-->
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
     <!--библиотеки-->
     <script src="../Scripts/jquery-2.1.4.min.js"></script>
     <script src="../Scripts/angular.js"></script>
@@ -19,15 +22,28 @@
     <!--контроллеры-->
     <script src="Login/loginCtrl.js"></script>
     <script src="Exam/ExamCtrl.js"></script>
+    <script src="Reports/SummaryReport/SummaryReportCtrl.js"></script>
 
-    <!--стили-->
-    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    
 
     <title></title>
 </head>
 
 <body>
+<a href="#/Reports">Отчеты</a>
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2">
+            <a data-toggle="dropdown" href="#">Отчеты</a>
+            <ul class="dropdown-menu">
+                <li><a href="#/SummaryReport">Отчет 1</a></li>
+                <li><a href="#">hello 1</a></li>
+                <li><a href="#">hello 1</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 
 

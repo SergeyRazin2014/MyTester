@@ -1,0 +1,23 @@
+﻿<div ng-controller="SummaryReportCtrl">
+
+    <table>
+
+        <tr>
+            <td>
+                Количество респондентов
+            </td>
+            <td>
+                {{personCount}}
+            </td>
+        </tr>
+
+        <tr ng-repeat="query in querys">
+            <td>
+                {{qeury.Text}}
+            </td>
+            <td>
+                //СРЕДНЕЕ КОЛИЧЕСТВО БАЛЛОВ ПО ЭТОМУ ВОПРОСУ 
+            </td>
+        </tr>
+    </table>
+</div>

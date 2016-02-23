@@ -14,7 +14,7 @@ namespace Domain
         [Key, Column(Order = 0)]
         public int PersonId { get; set; }
 
-        public virtual Person Person { get; set; }
+        internal virtual Person Person { get; set; }
 
         [Key, Column(Order = 1)]
         public int QueryId { get; set; }

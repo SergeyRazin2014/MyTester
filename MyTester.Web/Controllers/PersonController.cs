@@ -21,9 +21,14 @@ namespace MyTester.Controllers
 
         public void SavePersonsExam(Person person)
         {
-
-
             _db.Add(person);
+        }
+
+        public ActionResult GetAll()
+        {
+            var res = _db.GetAll();
+
+            return Json(res,JsonRequestBehavior.AllowGet);
         }
     }
 }
