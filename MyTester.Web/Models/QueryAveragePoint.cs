@@ -9,6 +9,6 @@ namespace MyTester.Models
     public class QueryAveragePoint
     {
         public Query Query { get; set; }
-        public int AveragePoint { get; set; }
+        public double AveragePoint { get; set; }
     }
 }

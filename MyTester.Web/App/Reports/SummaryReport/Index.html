@@ -1,22 +1,22 @@
 ﻿<div ng-controller="SummaryReportCtrl">
 
-    <table>
+    <table class="table-bordered">
 
         <tr>
             <td>
                 Количество респондентов
             </td>
             <td>
-                {{persons.length}}
+                {{summaryReportInfo.PersonCount}}
             </td>
         </tr>
 
-        <tr ng-repeat="query in querys">
+        <tr ng-repeat="queryAveragePoint in summaryReportInfo.QueryAveragePointList">
             <td>
-                {{qeury.Text}}
+                {{queryAveragePoint.Query.Text}}
             </td>
             <td>
-                //СРЕДНЕЕ КОЛИЧЕСТВО БАЛЛОВ ПО ЭТОМУ ВОПРОСУ 
+                {{queryAveragePoint.AveragePoint}}
             </td>
         </tr>
     </table>

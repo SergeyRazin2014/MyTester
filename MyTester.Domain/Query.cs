@@ -10,7 +10,7 @@ namespace Domain
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public int Point { get; set; }
+        public double Point { get; set; }
 
         public virtual List<VariantAnsver> VariantsAnsver { get; set; }
     }

@@ -19,16 +19,6 @@ namespace MyTester.Controllers
             _personRepo.Add(person);
         }
 
-        public ActionResult GetAll()
-        {
-            var res = _personRepo.GetAll();
-
-            return Json(res, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult GetPersonsWithRightAnswers()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

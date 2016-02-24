@@ -1,14 +1,14 @@
-﻿using System;
-using Domain;
+﻿using Domain;
 using MyTester.Domain;
+using MyTester.Models;
 using System.Collections.Generic;
 using System.Linq;
-using MyTester.Models;
 
 namespace MyTester.Infrastructure
 {
     public class QueryHelper
     {
+        ///определить ответил ли пользователь правильно на конкретный вопрос
         public bool IsPersonAnswersRight(Query query, Person person)
         {
             //ответы пользователя
@@ -31,34 +31,37 @@ namespace MyTester.Infrastructure
             return true;
         }
 
+        //получить все ответы на данный вопрос конкретным пользователем
         public List<PersonsAnswers> GetPersonsAnswersByQuery(Query query, Person person)
         {
-            //получить все ответы на данный вопрос этим конкретным пользователем
             var res = person.PersonsAnswers.Where(e => e.Query.Id == query.Id).ToList();
             return res;
         }
 
-        public SummaryReportInfo GetSummaryReportInfo(List<Query> allQuerys, List<Person> allPersons)
+        //получить список элементов - вопрос, среднееЗначениеБаллов
+        public List<QueryAveragePoint> GetQueryAveragePintList(List<Query> allQuerys, List<Person> allPersons)
         {
-            var res = new SummaryReportInfo();
-            res.PersonCount = allPersons.Count;
-            
-            //по каждому вопросу получить среднее значение очков
+            //по каждому вопросу получить среднее значение баллов
+            var queryAveragePointList = new List<QueryAveragePoint>();
+            foreach (var query in allQuerys)
+            {
+                var queryAveragePint = new QueryAveragePoint();
+                queryAveragePint.Query = query;
+                queryAveragePint.AveragePoint = GetAveragePointByQuery(query, allPersons);
 
-            var queryAveragePointList = new QueryAveragePoint();
-            //...
+                queryAveragePointList.Add(queryAveragePint);
+            }
 
-            return res;
-
+            return queryAveragePointList;
         }
 
-
+        //получить среднее значение баллов за вопрос
         public double GetAveragePointByQuery(Query query, List<Person> allPersons)
         {
             if (allPersons.Count <= 0)
                 return 0;
 
-            //для каждого персона 
+            //для каждого персона
             //  если он ответил на этот вопрос правильно
             //   добавить количество правльных ответов к счетчику
 
@@ -67,14 +70,25 @@ namespace MyTester.Infrastructure
             {
                 if (IsPersonAnswersRight(query, person))
                     countRightAnswers++;
-
             }
 
             if (countRightAnswers > 0)
-                return query.Point * allPersons.Count / countRightAnswers;
+            {
+                double res = (query.Point * countRightAnswers / allPersons.Count);
+                return res;
+            }
 
-            else
-                return 0;
+            return 0;
+        }
+
+        public SummaryReportInfo GetSummaryReportInfo(List<Query> allQuerys, List<Person> allPersons)
+        {
+            SummaryReportInfo summaryReportInfo = new SummaryReportInfo();
+            summaryReportInfo.PersonCount = allPersons.Count();
+
+            summaryReportInfo.QueryAveragePointList = GetQueryAveragePintList(allQuerys, allPersons);
+
+            return summaryReportInfo;
         }
     }
 }
