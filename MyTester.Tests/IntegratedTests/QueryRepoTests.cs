@@ -1,6 +1,6 @@
-﻿using DAL.Repositories;
-using Domain;
-using MyTester.DAL;
+﻿using MyTester.DAL;
+using MyTester.DAL.Repositories;
+using MyTester.Domain;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Configuration;

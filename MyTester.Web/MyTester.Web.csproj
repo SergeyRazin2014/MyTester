@@ -105,6 +105,8 @@
     <Content Include="App\Index.html" />
     <Content Include="App\Login\Index.html" />
     <Content Include="App\Login\loginCtrl.js" />
+    <Content Include="App\Reports\DetailReport\DetailReportCtrl.js" />
+    <Content Include="App\Reports\DetailReport\Index.html" />
     <Content Include="App\Reports\PersonAverageReport\Index.html" />
     <Content Include="App\Reports\PersonAverageReport\PersonAverageReportCtrl.js" />
     <Content Include="App\Reports\SummaryReport\Index.html" />
@@ -134,6 +136,7 @@
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\ReportHelper.cs" />
+    <Compile Include="Models\DetailReport.cs" />
     <Compile Include="Models\QueryPoint.cs" />
     <Compile Include="Models\PersonAverage.cs" />
     <Compile Include="Models\PersonPoint.cs" />

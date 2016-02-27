@@ -35,7 +35,7 @@ app.controller('ExamCtrl', function ($scope, $http, $rootScope) {
 
         for (var i = 0; i < selectedAnswers.length; i++) {
             var PersonsAnswer = {
-                PerosnId: $rootScope.person.Id,
+                PersonId: $rootScope.person.Id,
                 QueryId: $scope.currentQuery.Id,
                 VariantAnsverId: selectedAnswers[i].Id,
             }

@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain;
 using MyTester.DAL.Repositories;
 using MyTester.Domain;
 
@@ -22,7 +21,7 @@ namespace MyTester.DAL
             if (queryRepo.GetAll().Count == 0)
             {
                 var query1 = new Query();
-                query1.Text = "Какую форму имеет планета земля";
+                query1.Text = "Какую форму имеет планета земля?";
                 query1.Point = 1;
                 var variant11 = new VariantAnsver();
                 variant11.Text = "круг";
@@ -36,7 +35,7 @@ namespace MyTester.DAL
                 queryRepo.Add(query1);
 
                 var query2 = new Query();
-                query2.Text = "К какому семейству относится арбуз";
+                query2.Text = "К какому семейству относится арбуз?";
                 query2.Point = 2;
                 var variant111 = new VariantAnsver();
                 variant111.Text = "ягода";
@@ -50,10 +49,10 @@ namespace MyTester.DAL
                 queryRepo.Add(query2);
 
                 var query3 = new Query();
-                query3.Text = "Какую цель преследовали США применив ядерное оружие проитв Японии?";
+                query3.Text = "Какую цель преследовали США применив ядерное оружие против Японии?";
                 query3.Point = 3;
                 var variant1111 = new VariantAnsver();
-                variant1111.Text = "Сохранить жизни людей";
+                variant1111.Text = "Сократить жертвы среди мирных жителей";
                 var variant2222 = new VariantAnsver();
                 variant2222.Text = "Напугать СССР";
                 variant2222.IsRight = true;

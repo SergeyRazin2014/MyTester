@@ -1,5 +1,4 @@
-﻿using Domain;
-using MyTester.Domain;
+﻿using MyTester.Domain;
 using MyTester.Infrastructure;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -208,11 +207,11 @@ namespace MyTester.UnitTests
         //}
 
         [Test]
-        public void GetPerosnPointList_WhenAllPersonsAnswerRight()
+        public void GetPersonPointList_WhenAllPersonsAnswerRight()
         {
             var queryHelper = new ReportHelper();
             //получить результаты ответов пользователей для первого вопроса
-            var res = queryHelper.GetPerosnPointList(_query1, new List<Person>() { _person1, _person2 });
+            var res = queryHelper.GetPersonPointList(_query1, new List<Person>() { _person1, _person2 });
 
             Assert.AreEqual(2, res.Count);
 
@@ -221,11 +220,11 @@ namespace MyTester.UnitTests
         }
 
         [Test]
-        public void GetPerosnPointList_WhenNotAllPersonsAnswerRight()
+        public void GetPersonPointList_WhenNotAllPersonsAnswerRight()
         {
             var queryHelper = new ReportHelper();
             //получить результаты ответов пользователей для второго вопроса
-            var res = queryHelper.GetPerosnPointList(_query2, new List<Person>() { _person1, _person2 });
+            var res = queryHelper.GetPersonPointList(_query2, new List<Person>() { _person1, _person2 });
 
             Assert.AreEqual(2, res.Count);
 

@@ -6,7 +6,8 @@ app.config(function ($routeProvider) {
         .when('/Login', { templateUrl: 'Login/Index.html', controller: '' })
         .when('/Exam', { templateUrl: 'Exam/Index.html', controller: '' })
         .when('/SummaryReport', { templateUrl: 'Reports/SummaryReport/Index.html', controller: '' })
-    .when('/PersonAverageReport', { templateUrl: 'Reports/PersonAverageReport/Index.html', controller: '' })
+        .when('/PersonAverageReport', { templateUrl: 'Reports/PersonAverageReport/Index.html', controller: '' })
+    .when('/DetailReport', { templateUrl: 'Reports/DetailReport/Index.html', controller: '' })
 
     $routeProvider.otherwise({ redirectTo: '/Login' });
 });

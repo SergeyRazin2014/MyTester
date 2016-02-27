@@ -1,4 +1,5 @@
-﻿using DAL.Abstract;
+﻿using System.Diagnostics;
+using DAL.Abstract;
 using MyTester.Infrastructure;
 using System.Web.Mvc;
 
@@ -9,10 +10,10 @@ namespace MyTester.Controllers
         private IQueryRepo _queryRepo;
         private IPersonRepo _personRepo;
 
-        public QueryController(IQueryRepo queryRepo, IPersonRepo perosnRepo)
+        public QueryController(IQueryRepo queryRepo, IPersonRepo personRepo)
         {
             _queryRepo = queryRepo;
-            _personRepo = perosnRepo;
+            _personRepo = personRepo;
         }
 
         public JsonResult GetAll()
@@ -37,6 +38,17 @@ namespace MyTester.Controllers
             var allQuerys = _queryRepo.GetAll();
 
             var res = new ReportHelper().GetPersonAverageList(allPersons, allQuerys);
+
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public JsonResult GetDetailReport()
+        {
+            var allPersons = _personRepo.GetAll();
+            var allQuerys = _queryRepo.GetAll();
+
+            var res = new ReportHelper().GetDetailReport(allPersons, allQuerys); 
 
             return Json(res, JsonRequestBehavior.AllowGet);
         }

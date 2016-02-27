@@ -1,12 +1,11 @@
-﻿using DAL.Repositories;
-using Domain;
-using MyTester.DAL;
+﻿using MyTester.DAL;
 using MyTester.Domain;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
+using MyTester.DAL.Repositories;
 
 namespace MyTester.IntegratedTests.IntegratedTests
 {

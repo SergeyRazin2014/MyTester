@@ -1,0 +1,22 @@
+﻿<div ng-controller="DetailReportCtrl">
+    <table class="table-bordered">
+
+        <tr>
+            <th>
+                
+            </th>
+            <th ng-repeat="person in detailReport.AllPersons">
+                {{person.Surname}}
+            </th>
+        </tr>
+
+        <tr ng-repeat="report in detailReport.QueryPointList">
+            <td>
+                {{report.Query.Text}}
+            </td>
+            <td ng-repeat="personPointList in report.PersonPointList">
+                {{personPointList.Point}}
+            </td>
+        </tr>
+    </table>
+</div>

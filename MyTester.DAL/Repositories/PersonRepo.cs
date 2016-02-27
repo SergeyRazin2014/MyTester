@@ -6,7 +6,7 @@ using MyTester.Domain;
 
 namespace MyTester.DAL.Repositories
 {
-    public class PersonRepo:IPersonRepo
+    public class PersonRepo : IPersonRepo
     {
         public MyContext _db;
 

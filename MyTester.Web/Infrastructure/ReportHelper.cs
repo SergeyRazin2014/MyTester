@@ -1,5 +1,4 @@
-﻿using Domain;
-using MyTester.Domain;
+﻿using MyTester.Domain;
 using MyTester.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -128,7 +127,7 @@ namespace MyTester.Infrastructure
 
         public List<QueryPoint> GetQueryPointList(List<Person> allPersons, List<Query> allQueries)
         {
-            List<QueryPoint> detailReportList = new List<QueryPoint>();
+            List<QueryPoint> queryPointList = new List<QueryPoint>();
 
             //для каждог вопроса создать объект DetailReport
             foreach (var query in allQueries)
@@ -136,29 +135,39 @@ namespace MyTester.Infrastructure
                 var detailReport = new QueryPoint();
                 detailReport.Query = query;
 
-                detailReport.PersonPointList = GetPerosnPointList(query,allPersons);
+                detailReport.PersonPointList = GetPersonPointList(query, allPersons);
 
-                detailReportList.Add(detailReport);
+                queryPointList.Add(detailReport);
             }
 
-            return detailReportList.OrderBy(e=>e.Query.Id).ToList();
+            return queryPointList.OrderBy(e => e.Query.Id).ToList();
         }
 
-        public List<PersonPoint> GetPerosnPointList(Query query, List<Person> allPersons)
+        public List<PersonPoint> GetPersonPointList(Query query, List<Person> allPersons)
         {
             List<PersonPoint> personPointList = new List<PersonPoint>();
 
-                foreach (var pers in allPersons)
-                {
-                    PersonPoint personPoint = new PersonPoint();
-                    personPoint.Query = query;
-                    personPoint.Person = pers;
-                    personPoint.Point = IsPersonAnswersRight(query, pers) ? query.Point : 0;
+            foreach (var pers in allPersons)
+            {
+                PersonPoint personPoint = new PersonPoint();
+                personPoint.Query = query;
+                personPoint.Person = pers;
+                personPoint.Point = IsPersonAnswersRight(query, pers) ? query.Point : 0;
 
-                    personPointList.Add(personPoint);
-                }
+                personPointList.Add(personPoint);
+            }
 
-            return personPointList.OrderBy(e=>e.Person.Id).ToList();
+            return personPointList.OrderBy(e => e.Person.Id).ToList();
+        }
+
+        public DetailReport GetDetailReport(List<Person> allPersons, List<Query> allQueries)
+        {
+            var detailReport = new DetailReport();
+
+            detailReport.AllPersons = allPersons;
+            detailReport.QueryPointList = GetQueryPointList(allPersons, allQueries);
+
+            return detailReport;
         }
     }
 }

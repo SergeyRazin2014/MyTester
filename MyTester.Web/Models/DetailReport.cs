@@ -6,10 +6,11 @@ using MyTester.Domain;
 
 namespace MyTester.Models
 {
-    public class PersonsQuerysAnswer
+    public class DetailReport
     {
-        public Person Person { get; set; }
-        public List<Query> PersonsAnswers { get; set; }
-        
+        public List<Person> AllPersons { get; set; }
+
+        public List<QueryPoint> QueryPointList { get; set; } 
+
     }
 }
