@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Domain;
 using MyTester.Domain;
 
 namespace MyTester.Models
 {
-    public class QueryAveragePoint
+    public class PersonPoint
     {
         public Query Query { get; set; }
-        public double AveragePoint { get; set; }
+
+        public Person Person { get; set; }
+
+        public double Point { get; set; }
     }
 }

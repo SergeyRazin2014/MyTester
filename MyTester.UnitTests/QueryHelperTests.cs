@@ -116,7 +116,7 @@ namespace MyTester.UnitTests
         [Test]
         public void IsPersonAnswersRight_MoreThenNeedVariant()
         {
-            var queryHelper = new QueryHelper();
+            var queryHelper = new ReportHelper();
             var res = queryHelper.IsPersonAnswersRight(_query2, _person1);
 
             Assert.IsFalse(res);
@@ -125,7 +125,7 @@ namespace MyTester.UnitTests
         [Test]
         public void IsPersonAnswersRight_PersonAnswerCorrect()
         {
-            var queryHelper = new QueryHelper();
+            var queryHelper = new ReportHelper();
             var res = queryHelper.IsPersonAnswersRight(_query1, _person1);
 
             Assert.IsTrue(res);
@@ -134,7 +134,7 @@ namespace MyTester.UnitTests
         [Test]
         public void GetPersonsAnswersByQuery_Test()
         {
-            var queryHelper = new QueryHelper();
+            var queryHelper = new ReportHelper();
             var res = queryHelper.GetPersonsAnswersByQuery(_query2, _person1);
 
             Assert.AreEqual(2, res.Count);
@@ -145,7 +145,7 @@ namespace MyTester.UnitTests
         [Test]
         public void GetAveragePointByQuery_AllPerosonAnswersRight()
         {
-            var queryHelper = new QueryHelper();
+            var queryHelper = new ReportHelper();
             var res = queryHelper.GetAveragePointByQuery(_query1, new List<Person>() { _person1, _person2 });
 
             Assert.AreEqual(1, res);
@@ -154,7 +154,7 @@ namespace MyTester.UnitTests
         [Test]
         public void GetAveragePointByQuery_OnePersonAnswerRight_SecondNotRight()
         {
-            var queryHelper = new QueryHelper();
+            var queryHelper = new ReportHelper();
             double res = queryHelper.GetAveragePointByQuery(_query2, new List<Person>() { _person1, _person2 });
 
             Assert.AreEqual(1.5, res);
@@ -163,7 +163,7 @@ namespace MyTester.UnitTests
         [Test]
         public void GetQueryAveragePintList_Test()
         {
-            var queryHelper = new QueryHelper();
+            var queryHelper = new ReportHelper();
             var res = queryHelper.GetQueryAveragePintList(new List<Query>() { _query1, _query2 }, new List<Person>() { _person1, _person2 });
 
             Assert.AreEqual(2, res.Count);
@@ -174,7 +174,7 @@ namespace MyTester.UnitTests
         [Test]
         public void GetSummaryReportInfo_Test()
         {
-            var queryHelper = new QueryHelper();
+            var queryHelper = new ReportHelper();
 
             var res = queryHelper.GetSummaryReportInfo(new List<Query>() { _query1, _query2 }, new List<Person>() { _person1 });
 
@@ -185,15 +185,66 @@ namespace MyTester.UnitTests
         [Test]
         public void GetPersonAverageList_Test()
         {
-            var queryHelper = new QueryHelper();
+            var queryHelper = new ReportHelper();
             var res = queryHelper.GetPersonAverageList(new List<Person>() { _person1, _person2 }, new List<Query>() { _query1, _query2 });
 
             Assert.AreEqual(2, res.Count);
 
             Assert.AreEqual(0.5, res.First(e => e.Person.Id == 1).AveragePoint);
-            Assert.AreEqual(2,res.FirstOrDefault(e=>e.Person.Id == 2).AveragePoint);
+            Assert.AreEqual(2, res.FirstOrDefault(e => e.Person.Id == 2).AveragePoint);
         }
 
+        //[Test]
+        //public void GetDetailReport_Test()
+        //{
+        //    var queryHelper = new ReportHelper();
+        //    var res = queryHelper.GetDetailReport(new List<Person>() { _person1, _person2 }, new List<Query>() { _query1, _query2 });
 
+        //    Assert.AreEqual(2, res.Count);
+
+        //    //взять первый вопрос и посмотреть сколько у первого пользователя балов
+        //    Assert.AreEqual(1, res.First(e => e.PersonPoint.Person.Id == 1).PersonPoint);
+
+        //}
+
+        [Test]
+        public void GetPerosnPointList_WhenAllPersonsAnswerRight()
+        {
+            var queryHelper = new ReportHelper();
+            //получить результаты ответов пользователей для первого вопроса
+            var res = queryHelper.GetPerosnPointList(_query1, new List<Person>() { _person1, _person2 });
+
+            Assert.AreEqual(2, res.Count);
+
+            Assert.AreEqual(1, res.First(e => e.Person.Id == 1).Point);
+            Assert.AreEqual(1, res.First(e => e.Person.Id == 2).Point);
+        }
+
+        [Test]
+        public void GetPerosnPointList_WhenNotAllPersonsAnswerRight()
+        {
+            var queryHelper = new ReportHelper();
+            //получить результаты ответов пользователей для второго вопроса
+            var res = queryHelper.GetPerosnPointList(_query2, new List<Person>() { _person1, _person2 });
+
+            Assert.AreEqual(2, res.Count);
+
+            Assert.AreEqual(0, res.First(e => e.Person.Id == 1).Point);
+            Assert.AreEqual(3, res.First(e => e.Person.Id == 2).Point);
+        }
+
+        [Test]
+        public void GetQueryPointList_Test()
+        {
+            var queryHelper = new ReportHelper();
+
+            var res = queryHelper.GetQueryPointList(new List<Person>() { _person1, _person2 }, new List<Query>() { _query1, _query2 });
+
+            Assert.AreEqual(2, res.Count);
+            Assert.AreEqual(1, res.First(e => e.Query.Id == 1).PersonPointList.First(e => e.Person.Id == 1).Point);
+            Assert.AreEqual(0, res.First(e => e.Query.Id == 2).PersonPointList.First(e => e.Person.Id == 1).Point);
+
+            Assert.AreEqual(3, res.First(e => e.Query.Id == 2).PersonPointList.First(e => e.Person.Id == 2).Point);
+        }
     }
 }

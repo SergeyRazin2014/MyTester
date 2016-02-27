@@ -133,8 +133,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Infrastructure\QueryHelper.cs" />
+    <Compile Include="Infrastructure\ReportHelper.cs" />
+    <Compile Include="Models\QueryPoint.cs" />
     <Compile Include="Models\PersonAverage.cs" />
+    <Compile Include="Models\PersonPoint.cs" />
     <Compile Include="Models\PersonsQuerysAnswer.cs" />
     <Compile Include="Models\QueryAveragePoint.cs" />
     <Compile Include="Models\SummaryReportInfo.cs" />

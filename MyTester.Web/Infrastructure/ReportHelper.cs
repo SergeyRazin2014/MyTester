@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace MyTester.Infrastructure
 {
-    public class QueryHelper
+    public class ReportHelper
     {
         ///определить ответил ли пользователь правильно на конкретный вопрос
         public bool IsPersonAnswersRight(Query query, Person person)
@@ -124,6 +124,41 @@ namespace MyTester.Infrastructure
             }
 
             return res;
+        }
+
+        public List<QueryPoint> GetQueryPointList(List<Person> allPersons, List<Query> allQueries)
+        {
+            List<QueryPoint> detailReportList = new List<QueryPoint>();
+
+            //для каждог вопроса создать объект DetailReport
+            foreach (var query in allQueries)
+            {
+                var detailReport = new QueryPoint();
+                detailReport.Query = query;
+
+                detailReport.PersonPointList = GetPerosnPointList(query,allPersons);
+
+                detailReportList.Add(detailReport);
+            }
+
+            return detailReportList.OrderBy(e=>e.Query.Id).ToList();
+        }
+
+        public List<PersonPoint> GetPerosnPointList(Query query, List<Person> allPersons)
+        {
+            List<PersonPoint> personPointList = new List<PersonPoint>();
+
+                foreach (var pers in allPersons)
+                {
+                    PersonPoint personPoint = new PersonPoint();
+                    personPoint.Query = query;
+                    personPoint.Person = pers;
+                    personPoint.Point = IsPersonAnswersRight(query, pers) ? query.Point : 0;
+
+                    personPointList.Add(personPoint);
+                }
+
+            return personPointList.OrderBy(e=>e.Person.Id).ToList();
         }
     }
 }

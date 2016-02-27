@@ -4,7 +4,6 @@ using MyTester.DAL;
 using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Routing;
-using DAL.Repositories;
 using Domain;
 
 namespace MyTester

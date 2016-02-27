@@ -27,7 +27,7 @@ namespace MyTester.Controllers
             var allPersons = _personRepo.GetAll();
             var allQuerys = _queryRepo.GetAll();
 
-            var res = new QueryHelper().GetSummaryReportInfo(allQuerys, allPersons);
+            var res = new ReportHelper().GetSummaryReportInfo(allQuerys, allPersons);
             return Json(res, JsonRequestBehavior.AllowGet);
         }
 
@@ -36,7 +36,7 @@ namespace MyTester.Controllers
             var allPersons = _personRepo.GetAll();
             var allQuerys = _queryRepo.GetAll();
 
-            var res = new QueryHelper().GetPersonAverageList(allPersons, allQuerys);
+            var res = new ReportHelper().GetPersonAverageList(allPersons, allQuerys);
 
             return Json(res, JsonRequestBehavior.AllowGet);
         }

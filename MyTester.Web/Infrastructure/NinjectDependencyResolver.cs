@@ -5,8 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DAL.Abstract;
-using DAL.Repositories;
 using MyTester.DAL;
+using MyTester.DAL.Repositories;
 using Ninject;
 
 namespace MyTester.Infrastructure
