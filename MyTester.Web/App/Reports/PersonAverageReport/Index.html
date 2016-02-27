@@ -1,0 +1,25 @@
+﻿<div ng-controller="PersonAverageReportCtrl">
+
+
+    <table class="table-bordered">
+
+        <tr>
+            <th>
+                Имя респондента
+            </th>
+            <th>
+                Средний балл респондента
+            </th>
+        </tr>
+
+        <tr ng-repeat="persAverage in personAverages">
+            <td>
+                {{persAverage.Person.Surname}}
+            </td>
+            <td>
+                {{persAverage.AveragePoint}}
+            </td>
+        </tr>
+    </table>
+
+</div>

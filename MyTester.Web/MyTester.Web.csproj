@@ -105,6 +105,8 @@
     <Content Include="App\Index.html" />
     <Content Include="App\Login\Index.html" />
     <Content Include="App\Login\loginCtrl.js" />
+    <Content Include="App\Reports\PersonAverageReport\Index.html" />
+    <Content Include="App\Reports\PersonAverageReport\PersonAverageReportCtrl.js" />
     <Content Include="App\Reports\SummaryReport\Index.html" />
     <Content Include="App\Reports\SummaryReport\SummaryReportCtrl.js" />
     <Content Include="Content\bootstrap.css" />

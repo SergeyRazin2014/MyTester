@@ -30,5 +30,15 @@ namespace MyTester.Controllers
             var res = new QueryHelper().GetSummaryReportInfo(allQuerys, allPersons);
             return Json(res, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetPersonAverageReport()
+        {
+            var allPersons = _personRepo.GetAll();
+            var allQuerys = _queryRepo.GetAll();
+
+            var res = new QueryHelper().GetPersonAverageList(allPersons, allQuerys);
+
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
     }
 }
