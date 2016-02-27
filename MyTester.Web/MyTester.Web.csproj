@@ -132,6 +132,7 @@
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\QueryHelper.cs" />
+    <Compile Include="Models\PersonAverage.cs" />
     <Compile Include="Models\PersonsQuerysAnswer.cs" />
     <Compile Include="Models\QueryAveragePoint.cs" />
     <Compile Include="Models\SummaryReportInfo.cs" />

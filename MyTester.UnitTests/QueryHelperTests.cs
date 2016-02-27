@@ -3,7 +3,6 @@ using MyTester.Domain;
 using MyTester.Infrastructure;
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace MyTester.UnitTests
@@ -103,10 +102,6 @@ namespace MyTester.UnitTests
 
             _person2.PersonsAnswers.Add(pa11);
             _person2.PersonsAnswers.Add(pa22);
-
-
-
-
         }
 
         [Test]
@@ -116,7 +111,6 @@ namespace MyTester.UnitTests
             Assert.AreEqual("Какую форму имеет планета земля", _person1.PersonsAnswers.First().Query.Text);
 
             Assert.AreEqual(2, _person2.PersonsAnswers.Count);
-
         }
 
         [Test]
@@ -187,5 +181,19 @@ namespace MyTester.UnitTests
             Assert.AreEqual(1, res.PersonCount);
             Assert.AreEqual(2, res.QueryAveragePointList.Count);
         }
+
+        [Test]
+        public void GetPersonAverageList_Test()
+        {
+            var queryHelper = new QueryHelper();
+            var res = queryHelper.GetPersonAverageList(new List<Person>() { _person1, _person2 }, new List<Query>() { _query1, _query2 });
+
+            Assert.AreEqual(2, res.Count);
+
+            Assert.AreEqual(0.5, res.First(e => e.Person.Id == 1).AveragePoint);
+            Assert.AreEqual(2,res.FirstOrDefault(e=>e.Person.Id == 2).AveragePoint);
+        }
+
+
     }
 }

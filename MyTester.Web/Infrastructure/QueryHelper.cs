@@ -81,6 +81,7 @@ namespace MyTester.Infrastructure
             return 0;
         }
 
+        //получить данные для общего отчета
         public SummaryReportInfo GetSummaryReportInfo(List<Query> allQuerys, List<Person> allPersons)
         {
             SummaryReportInfo summaryReportInfo = new SummaryReportInfo();
@@ -89,6 +90,40 @@ namespace MyTester.Infrastructure
             summaryReportInfo.QueryAveragePointList = GetQueryAveragePintList(allQuerys, allPersons);
 
             return summaryReportInfo;
+        }
+
+        //получить средний бал по каждому пользователю
+        public List<PersonAverage> GetPersonAverageList(List<Person> allPersons, List<Query> allQueries)
+        {
+            var res = new List<PersonAverage>();
+
+            foreach (var per in allPersons)
+            {
+                //получить все вопросы на которые отвечал пользователь
+                //var personsQuerys = per.PersonsAnswers.Select(e => e.Query).ToList();
+
+                //рассчитать сумму баллов набранных пользователем
+                double sumPonts = 0;
+                foreach (var query in allQueries)
+                {
+                    //если пользователь ответл верно, то добавить очки в копилку
+                    if (IsPersonAnswersRight(query, per))
+                    {
+                        sumPonts += query.Point;
+                    }
+                }
+
+                //рассчитать среднее количество очков
+                var averagePoints = sumPonts / allQueries.Count();
+
+                var personAverage = new PersonAverage();
+                personAverage.Person = per;
+                personAverage.AveragePoint = averagePoints;
+
+                res.Add(personAverage);
+            }
+
+            return res;
         }
     }
 }
