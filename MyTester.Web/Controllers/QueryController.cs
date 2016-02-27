@@ -28,7 +28,7 @@ namespace MyTester.Controllers
             var allPersons = _personRepo.GetAll();
             var allQuerys = _queryRepo.GetAll();
 
-            var res = new ReportHelper().GetSummaryReportInfo(allQuerys, allPersons);
+            var res = new ReportHelper().GetSummaryReport(allQuerys, allPersons);
             return Json(res, JsonRequestBehavior.AllowGet);
         }
 

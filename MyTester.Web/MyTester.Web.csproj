@@ -137,6 +137,7 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\ReportHelper.cs" />
     <Compile Include="Models\DetailReport.cs" />
+    <Compile Include="Models\PersonSumPoint.cs" />
     <Compile Include="Models\QueryPoint.cs" />
     <Compile Include="Models\PersonAverage.cs" />
     <Compile Include="Models\PersonPoint.cs" />

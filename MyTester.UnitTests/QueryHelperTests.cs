@@ -175,7 +175,7 @@ namespace MyTester.UnitTests
         {
             var queryHelper = new ReportHelper();
 
-            var res = queryHelper.GetSummaryReportInfo(new List<Query>() { _query1, _query2 }, new List<Person>() { _person1 });
+            var res = queryHelper.GetSummaryReport(new List<Query>() { _query1, _query2 }, new List<Person>() { _person1 });
 
             Assert.AreEqual(1, res.PersonCount);
             Assert.AreEqual(2, res.QueryAveragePointList.Count);
@@ -237,13 +237,23 @@ namespace MyTester.UnitTests
         {
             var queryHelper = new ReportHelper();
 
-            var res = queryHelper.GetQueryPointList(new List<Person>() { _person1, _person2 }, new List<Query>() { _query1, _query2 });
+            var res = queryHelper.GetDetailReportRow(new List<Person>() { _person1, _person2 }, new List<Query>() { _query1, _query2 });
 
             Assert.AreEqual(2, res.Count);
             Assert.AreEqual(1, res.First(e => e.Query.Id == 1).PersonPointList.First(e => e.Person.Id == 1).Point);
             Assert.AreEqual(0, res.First(e => e.Query.Id == 2).PersonPointList.First(e => e.Person.Id == 1).Point);
 
             Assert.AreEqual(3, res.First(e => e.Query.Id == 2).PersonPointList.First(e => e.Person.Id == 2).Point);
+        }
+
+        [Test]
+        public void GetSummaryRow_Test()
+        {
+            var queryHelper = new ReportHelper();
+            var res = queryHelper.GetSummaryRow(new List<Person>(){_person1,_person2},new List<Query>(){_query1,_query2} );
+
+            Assert.AreEqual(1,res.First(e=>e.Person.Id == 1).SumPoint);
+            Assert.AreEqual(4,res.First(e=>e.Person.Id == 2).SumPoint);
         }
     }
 }

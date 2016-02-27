@@ -13,15 +13,24 @@
             </th>
         </tr>
 
-        <tr ng-repeat="report in detailReport.QueryPointList">
+        <tr ng-repeat="row in detailReport.Row">
             <td>
-                {{report.Query.Text}}
+                {{row.Query.Text}}
             </td>
-            <td ng-repeat="personPointList in report.PersonPointList">
+            <td ng-repeat="personPointList in row.PersonPointList">
                 {{personPointList.Point}}
             </td>
             <td>
-                {{report.AveragePoitByQuery}}
+                {{row.AveragePointByQuery}}
+            </td>
+        </tr>
+        <tr>
+            <td>Общее количество баллов</td>
+            <td ng-repeat="persSumm in detailReport.Summary">
+                {{persSumm.SumPoint}}
+            </td>
+            <td>
+                {{averageSumm}}
             </td>
         </tr>
     </table>

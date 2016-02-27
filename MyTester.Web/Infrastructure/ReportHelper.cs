@@ -81,7 +81,7 @@ namespace MyTester.Infrastructure
         }
 
         //получить данные для общего отчета
-        public SummaryReportInfo GetSummaryReportInfo(List<Query> allQuerys, List<Person> allPersons)
+        public SummaryReportInfo GetSummaryReport(List<Query> allQuerys, List<Person> allPersons)
         {
             SummaryReportInfo summaryReportInfo = new SummaryReportInfo();
             summaryReportInfo.PersonCount = allPersons.Count();
@@ -91,7 +91,7 @@ namespace MyTester.Infrastructure
             return summaryReportInfo;
         }
 
-        //получить средний бал по каждому пользователю
+        //получить средний балл по каждому пользователю
         public List<PersonAverage> GetPersonAverageList(List<Person> allPersons, List<Query> allQueries)
         {
             var res = new List<PersonAverage>();
@@ -125,17 +125,15 @@ namespace MyTester.Infrastructure
             return res;
         }
 
-        public List<QueryPoint> GetQueryPointList(List<Person> allPersons, List<Query> allQueries)
+        public List<QueryPoint> GetDetailReportRow(List<Person> allPersons, List<Query> allQueries)
         {
             List<QueryPoint> queryPointList = new List<QueryPoint>();
 
-            //для каждог вопроса создать объект DetailReport
             foreach (var query in allQueries)
             {
                 var queryPoint = new QueryPoint();
                 queryPoint.Query = query;
-                queryPoint.AveragePoitByQuery = GetAveragePointByQuery(query, allPersons);
-
+                queryPoint.AveragePointByQuery = GetAveragePointByQuery(query, allPersons);
                 queryPoint.PersonPointList = GetPersonPointList(query, allPersons);
 
                 queryPointList.Add(queryPoint);
@@ -144,6 +142,7 @@ namespace MyTester.Infrastructure
             return queryPointList.OrderBy(e => e.Query.Id).ToList();
         }
 
+        //получить список элементов - вопрос, респондент, балл
         public List<PersonPoint> GetPersonPointList(Query query, List<Person> allPersons)
         {
             List<PersonPoint> personPointList = new List<PersonPoint>();
@@ -154,7 +153,6 @@ namespace MyTester.Infrastructure
                 personPoint.Query = query;
                 personPoint.Person = pers;
                 personPoint.Point = IsPersonAnswersRight(query, pers) ? query.Point : 0;
-
 
                 personPointList.Add(personPoint);
             }
@@ -167,12 +165,38 @@ namespace MyTester.Infrastructure
             var detailReport = new DetailReport();
 
             detailReport.AllPersons = allPersons;
-            detailReport.QueryPointList = GetQueryPointList(allPersons, allQueries);
-            //detailReport.AveragePoitByQueryList = GetQueryAveragePintList(allQueries, allPersons).OrderBy(e => e.Query.Id).Select(e => e.AveragePoint).ToList();
+            detailReport.Row = GetDetailReportRow(allPersons, allQueries);
 
-            
+            detailReport.Summary = GetSummaryRow(allPersons, allQueries);
 
             return detailReport;
+        }
+
+        public List<PersonSumPoint> GetSummaryRow(List<Person> allPersons, List<Query> allQueries)
+        {
+            List<PersonSumPoint> resList = new List<PersonSumPoint>();
+
+            //для каждого персона посчитать сумму его баллов
+            foreach (var person in allPersons)
+            {
+                double sumPoint = 0;
+
+                foreach (var query in allQueries)
+                {
+                    if (IsPersonAnswersRight(query, person))
+                    {
+                        sumPoint += query.Point;
+                    }
+                }
+
+                PersonSumPoint personSumPoint = new PersonSumPoint();
+                personSumPoint.SumPoint = sumPoint;
+                personSumPoint.Person = person;
+
+                resList.Add(personSumPoint);
+            }
+
+            return resList.OrderBy(e=>e.Person.Id).ToList();
         }
     }
 }
