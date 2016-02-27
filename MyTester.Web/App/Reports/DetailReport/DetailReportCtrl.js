@@ -6,7 +6,7 @@ app.controller('DetailReportCtrl', function ($scope, $http, $rootScope) {
 
                         $scope.detailReport = response;
 
-                        var test = $scope.detailReport.AllPerson;
+                        
 
                     });
 });

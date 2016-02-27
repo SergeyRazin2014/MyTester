@@ -8,5 +8,7 @@ namespace MyTester.Models
         public Query Query { get; set; }
 
         public List<PersonPoint> PersonPointList { get; set; }
+
+        public double AveragePoitByQuery { get; set; }
     }
 }

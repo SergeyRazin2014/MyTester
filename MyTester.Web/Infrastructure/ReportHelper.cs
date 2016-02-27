@@ -132,12 +132,13 @@ namespace MyTester.Infrastructure
             //для каждог вопроса создать объект DetailReport
             foreach (var query in allQueries)
             {
-                var detailReport = new QueryPoint();
-                detailReport.Query = query;
+                var queryPoint = new QueryPoint();
+                queryPoint.Query = query;
+                queryPoint.AveragePoitByQuery = GetAveragePointByQuery(query, allPersons);
 
-                detailReport.PersonPointList = GetPersonPointList(query, allPersons);
+                queryPoint.PersonPointList = GetPersonPointList(query, allPersons);
 
-                queryPointList.Add(detailReport);
+                queryPointList.Add(queryPoint);
             }
 
             return queryPointList.OrderBy(e => e.Query.Id).ToList();
@@ -154,6 +155,7 @@ namespace MyTester.Infrastructure
                 personPoint.Person = pers;
                 personPoint.Point = IsPersonAnswersRight(query, pers) ? query.Point : 0;
 
+
                 personPointList.Add(personPoint);
             }
 
@@ -166,6 +168,9 @@ namespace MyTester.Infrastructure
 
             detailReport.AllPersons = allPersons;
             detailReport.QueryPointList = GetQueryPointList(allPersons, allQueries);
+            //detailReport.AveragePoitByQueryList = GetQueryAveragePintList(allQueries, allPersons).OrderBy(e => e.Query.Id).Select(e => e.AveragePoint).ToList();
+
+            
 
             return detailReport;
         }

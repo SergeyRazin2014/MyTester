@@ -10,7 +10,10 @@ namespace MyTester.Models
     {
         public List<Person> AllPersons { get; set; }
 
-        public List<QueryPoint> QueryPointList { get; set; } 
+        public List<QueryPoint> QueryPointList { get; set; }
 
+        //public List<double> AveragePoitByQueryList { get; set; }  
+
+        
     }
 }

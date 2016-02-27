@@ -8,6 +8,9 @@
             <th ng-repeat="person in detailReport.AllPersons">
                 {{person.Surname}}
             </th>
+            <th>
+                Средний балл
+            </th>
         </tr>
 
         <tr ng-repeat="report in detailReport.QueryPointList">
@@ -16,6 +19,9 @@
             </td>
             <td ng-repeat="personPointList in report.PersonPointList">
                 {{personPointList.Point}}
+            </td>
+            <td>
+                {{report.AveragePoitByQuery}}
             </td>
         </tr>
     </table>
