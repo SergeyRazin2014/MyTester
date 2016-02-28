@@ -7,7 +7,7 @@ using System.Linq;
 namespace MyTester.UnitTests
 {
     [TestFixture]
-    public class QueryHelperTests
+    public class ReportHelperTests
     {
         private Person _person1;
         private Person _person2;
@@ -190,21 +190,10 @@ namespace MyTester.UnitTests
             Assert.AreEqual(2, res.Count);
 
             Assert.AreEqual(0.5, res.First(e => e.Person.Id == 1).AveragePoint);
-            Assert.AreEqual(2, res.FirstOrDefault(e => e.Person.Id == 2).AveragePoint);
+            Assert.AreEqual(2, res.First(e => e.Person.Id == 2).AveragePoint);
         }
 
-        //[Test]
-        //public void GetDetailReport_Test()
-        //{
-        //    var queryHelper = new ReportHelper();
-        //    var res = queryHelper.GetDetailReport(new List<Person>() { _person1, _person2 }, new List<Query>() { _query1, _query2 });
-
-        //    Assert.AreEqual(2, res.Count);
-
-        //    //взять первый вопрос и посмотреть сколько у первого пользователя балов
-        //    Assert.AreEqual(1, res.First(e => e.PersonPoint.Person.Id == 1).PersonPoint);
-
-        //}
+        
 
         [Test]
         public void GetPersonPointList_WhenAllPersonsAnswerRight()

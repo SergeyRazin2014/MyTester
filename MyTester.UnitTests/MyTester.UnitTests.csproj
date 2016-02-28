@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryHelperTests.cs" />
+    <Compile Include="ReportHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyTester.DAL\MyTester.DAL.csproj">
@@ -58,6 +58,9 @@
       <Project>{712606f7-3361-48ab-9e88-c5c548884eaf}</Project>
       <Name>MyTester.Web</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

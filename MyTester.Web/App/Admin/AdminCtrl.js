@@ -1,7 +1,8 @@
 ﻿var app = angular.module('app');
 
-app.controller('AdminCtrl', function ($scope, $http, $rootScope, modalWindowsService) {
-    $scope.clearResult = function() {
+app.controller('AdminCtrl', function ($scope, $http, $rootScope,  modalWindowsService) {
+    $scope.clearResult = function () {
+
         $scope.clearResult = function () {
 
             function okCallback() {
@@ -9,12 +10,17 @@ app.controller('AdminCtrl', function ($scope, $http, $rootScope, modalWindowsSer
             }
 
             function noCallback() {
-                
+                //..
+            }
+
+            function cancellCallback() {
+                //..
             }
 
             modalWindowsService.showYesNoCancel("Очистить результаты тестирования?", okCallback, noCallback, cancellCallback);
-
-            
         }
     }
+
+
+    $('#btnClear').focus();
 });

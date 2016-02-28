@@ -1,15 +1,13 @@
-﻿angular.module('app').controller('modalWindowCtrl', function ($scope, $modalInstance, $log, $rootScope, text) {
+﻿angular.module('app').controller('modalWindowCtrl', function ($scope, $uibModalInstance, $log, $rootScope, text) {
     $scope.text = text;
 
     $scope.ok = function () {
-        $modalInstance.close("ok");
+        $uibModalInstance.close("ok");
     };
 
     $scope.no = function () {
-        $modalInstance.close("no");
+        $uibModalInstance.close("no");
     };
 
-    $scope.cancel = function () {
-        $modalInstance.close("cancel");
-    };
+    
 });

@@ -1,4 +1,4 @@
-﻿<br/>
+﻿<br />
 <br />
 <div class="container" ng-controller="ExamCtrl">
     <div class="row">
@@ -18,7 +18,8 @@
                     </table>
 
                     <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="next()" ng-hide="!isNextVisible">ДАЛЕЕ</button>
-                    <button class="btn btn-lg btn-primary btn-block" type="button" ng-hide="isNextVisible" ng-click="examFinish()">ЗАВЕРШИТЬ</button>
+                    <!--<button class="btn btn-lg btn-primary btn-block" type="button" ng-hide="isNextVisible" ng-click="examFinish()">ЗАВЕРШИТЬ</button>-->
+                    <a href="#/SummaryReport" class="btn btn-lg btn-primary btn-block" role="button" ng-hide="isNextVisible" ng-click="examFinish()">завершить</a>
 
                 </div>
             </div>
