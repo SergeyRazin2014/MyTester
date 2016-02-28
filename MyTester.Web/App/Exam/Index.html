@@ -11,15 +11,15 @@
 
                     <table class="table">
                         <tr ng-repeat="variant in currentQuery.VariantsAnsver">
-                            <td><input type="checkbox" ng-model="variant.IsSelected" /> </td>
+                            <td><input type="checkbox" ng-model="variant.IsSelected"  /> </td>
                             <td>{{variant.Text}}</td>
                         </tr>
 
                     </table>
 
-                    <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="next()" ng-hide="!isNextVisible">ДАЛЕЕ</button>
-                    <!--<button class="btn btn-lg btn-primary btn-block" type="button" ng-hide="isNextVisible" ng-click="examFinish()">ЗАВЕРШИТЬ</button>-->
-                    <a href="#/SummaryReport" class="btn btn-lg btn-primary btn-block" role="button" ng-hide="isNextVisible" ng-click="examFinish()">завершить</a>
+                    <button class="btn btn-lg btn-primary btn-block" type="button" ng-disabled="nextDisabled()" ng-click="next()" ng-hide="!isNextVisible">ДАЛЕЕ</button>
+                    <!--<a href="#/SummaryReport" class="btn btn-lg btn-primary btn-block" role="button" ng-disabled="nextDisabled()" ng-hide="isNextVisible" ng-click="examFinish()">завершить</a>-->
+                    <button class="btn btn-lg btn-primary btn-block" type="button" ng-disabled="nextDisabled()" ng-click="examFinish()" ng-hide="isNextVisible">ЗАВЕРШИТЬ</button>
 
                 </div>
             </div>

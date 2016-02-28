@@ -1,6 +1,6 @@
 ﻿var app = angular.module('app');
 
-app.controller('ExamCtrl', function ($scope, $http, $rootScope) {
+app.controller('ExamCtrl', function ($scope, $http, $rootScope,$location) {
     $scope.isNextVisible = true;
     $scope.ansversList = [];
 
@@ -31,8 +31,6 @@ app.controller('ExamCtrl', function ($scope, $http, $rootScope) {
         //выбранные ответы пользователем для текущего вопроса
         var selectedAnswers = _.filter($scope.currentQuery.VariantsAnsver, function (variantAnsver) { return variantAnsver.IsSelected === true; });
 
-
-
         for (var i = 0; i < selectedAnswers.length; i++) {
             var PersonsAnswer = {
                 PersonId: $rootScope.person.Id,
@@ -44,13 +42,33 @@ app.controller('ExamCtrl', function ($scope, $http, $rootScope) {
 
     }
 
-    $scope.examFinish = function () {
+    $scope.examFinish = function() {
         addAnswer();
 
         $rootScope.person.PersonsAnswers = $scope.PersonsAnswers;
 
         $http.post("/Person/SavePersonsExam", $rootScope.person)
-        .success(function (response) {
-        });
+            .success(function (response) {
+
+                //показать отчетъ
+                $location.path('/SummaryReport');
+
+            });
     }
+
+    $scope.nextDisabled = function() {
+
+        if ($scope.currentQuery == undefined)
+            return true;
+
+        //если выбран хотябы один вариант ответа
+        for (var variant in $scope.currentQuery.VariantsAnsver) {
+            if ($scope.currentQuery.VariantsAnsver[variant].IsSelected === true) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
 });
