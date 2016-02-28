@@ -38,7 +38,7 @@ namespace MyTester.Infrastructure
         }
 
         //получить список элементов - вопрос, среднееЗначениеБаллов
-        public List<QueryAveragePoint> GetQueryAveragePintList(List<Query> allQuerys, List<Person> allPersons)
+        public List<QueryAveragePoint> GetQueryAveragePointList(List<Query> allQuerys, List<Person> allPersons)
         {
             //по каждому вопросу получить среднее значение баллов
             var queryAveragePointList = new List<QueryAveragePoint>();
@@ -86,7 +86,7 @@ namespace MyTester.Infrastructure
             SummaryReportInfo summaryReportInfo = new SummaryReportInfo();
             summaryReportInfo.PersonCount = allPersons.Count();
 
-            summaryReportInfo.QueryAveragePointList = GetQueryAveragePintList(allQuerys, allPersons);
+            summaryReportInfo.QueryAveragePointList = GetQueryAveragePointList(allQuerys, allPersons);
 
             return summaryReportInfo;
         }
@@ -176,7 +176,7 @@ namespace MyTester.Infrastructure
         {
             List<PersonSumPoint> resList = new List<PersonSumPoint>();
 
-            //для каждого персона посчитать сумму его баллов
+            //для каждого персона посчитать сумму его баллов по каждому вопросу
             foreach (var person in allPersons)
             {
                 double sumPoint = 0;
@@ -196,7 +196,7 @@ namespace MyTester.Infrastructure
                 resList.Add(personSumPoint);
             }
 
-            return resList.OrderBy(e=>e.Person.Id).ToList();
+            return resList.OrderBy(e => e.Person.Id).ToList();
         }
     }
 }

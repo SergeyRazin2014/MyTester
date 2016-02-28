@@ -163,7 +163,7 @@ namespace MyTester.UnitTests
         public void GetQueryAveragePintList_Test()
         {
             var queryHelper = new ReportHelper();
-            var res = queryHelper.GetQueryAveragePintList(new List<Query>() { _query1, _query2 }, new List<Person>() { _person1, _person2 });
+            var res = queryHelper.GetQueryAveragePointList(new List<Query>() { _query1, _query2 }, new List<Person>() { _person1, _person2 });
 
             Assert.AreEqual(2, res.Count);
             Assert.AreEqual(1, res.First(e => e.Query.Id == 1).AveragePoint);
