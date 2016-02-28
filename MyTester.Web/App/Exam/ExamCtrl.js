@@ -15,6 +15,7 @@ app.controller('ExamCtrl', function ($scope, $http, $rootScope,$location) {
             $scope.currentQueryIndex = 0;
         });
 
+    //переход на след вопрос
     $scope.next = function () {
         addAnswer();
 
@@ -27,6 +28,7 @@ app.controller('ExamCtrl', function ($scope, $http, $rootScope,$location) {
         $scope.currentQuery = $scope.querys[$scope.currentQueryIndex];
     }
 
+    //запоминаем ответы пользователя
     function addAnswer() {
         //выбранные ответы пользователем для текущего вопроса
         var selectedAnswers = _.filter($scope.currentQuery.VariantsAnsver, function (variantAnsver) { return variantAnsver.IsSelected === true; });
@@ -50,7 +52,7 @@ app.controller('ExamCtrl', function ($scope, $http, $rootScope,$location) {
         $http.post("/Person/SavePersonsExam", $rootScope.person)
             .success(function (response) {
 
-                //показать отчетъ
+                //показать отчет
                 $location.path('/SummaryReport');
 
             });

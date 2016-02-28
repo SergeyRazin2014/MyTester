@@ -1,5 +1,4 @@
-﻿
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -17,20 +16,12 @@
     <script src="../Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/loading-bar.js"></script>
-    
-
-
-    
 
     <!--модули-->
     <script src="app.js"></script>
 
     <!--сервисы-->
     <script src="_angular/services/modalWindowService/modalWindowsService.js"></script>
-    
-
-
-
 
     <!--контроллеры-->
     <script src="Login/loginCtrl.js"></script>
@@ -40,42 +31,32 @@
     <script src="Reports/DetailReport/DetailReportCtrl.js"></script>
     <script src="Admin/AdminCtrl.js"></script>
     <script src="_angular/services/modalWindowService/modalWindowCtrl.js"></script>
-    
-
-    
 
     <title></title>
 </head>
 
 <body>
-    
 
-<div class="container">
-    <div class="row">
+    <div class="container">
+        <div class="row">
 
-        <div class="col-lg-10">
-            <a href="#/Login">Главная</a>&nbsp; |
-            <a data-toggle="dropdown" href="#">Отчеты</a>
-            <ul class="dropdown-menu">
-                <li><a href="#/SummaryReport">Краткий отчет</a></li>
-                <li><a href="#/PersonAverageReport">Средний балл по каждому респонденту</a></li>
-                <li><a href="#/DetailReport">Детальный отчет</a></li>
-            </ul>
+            <div class="col-lg-10">
+                <a href="#/Login">Главная</a>&nbsp; |
+                <a data-toggle="dropdown" href="#">Отчеты</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#/SummaryReport">Краткий отчет</a></li>
+                    <li><a href="#/PersonAverageReport">Средний балл по каждому респонденту</a></li>
+                    <li><a href="#/DetailReport">Детальный отчет</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2">
+                <a href="#/Admin">Администрирование</a>
+            </div>
         </div>
-
-        <div class="col-lg-2">
-            <a href="#/Admin">Администрирование</a>
-        </div>
-
     </div>
-</div>
 
-    
-
-
-<div ng-app="app" ng-view>
-
-</div>
-
+    <div ng-app="app" ng-view>
+    </div>
 </body>
 </html>

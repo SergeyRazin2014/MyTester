@@ -98,14 +98,11 @@ namespace MyTester.Infrastructure
 
             foreach (var per in allPersons)
             {
-                //получить все вопросы на которые отвечал пользователь
-                //var personsQuerys = per.PersonsAnswers.Select(e => e.Query).ToList();
-
                 //рассчитать сумму баллов набранных пользователем
                 double sumPonts = 0;
                 foreach (var query in allQueries)
                 {
-                    //если пользователь ответл верно, то добавить очки в копилку
+                    //если пользователь ответл верно, то добавить к сумме баллов
                     if (IsPersonAnswersRight(query, per))
                     {
                         sumPonts += query.Point;
