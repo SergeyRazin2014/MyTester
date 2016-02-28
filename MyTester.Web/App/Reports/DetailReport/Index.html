@@ -1,37 +1,42 @@
 ﻿<div ng-controller="DetailReportCtrl">
-    <table class="table-bordered">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <table class="table table-hover col-lg-6">
+                <tr>
+                    <th>
 
-        <tr>
-            <th>
-                
-            </th>
-            <th ng-repeat="person in detailReport.AllPersons">
-                {{person.Surname}}
-            </th>
-            <th>
-                Средний балл
-            </th>
-        </tr>
+                    </th>
+                    <th ng-repeat="person in detailReport.AllPersons">
+                        {{person.Surname}}
+                    </th>
+                    <th>
+                        Средний балл
+                    </th>
+                </tr>
 
-        <tr ng-repeat="row in detailReport.Row">
-            <td>
-                {{row.Query.Text}}
-            </td>
-            <td ng-repeat="personPointList in row.PersonPointList">
-                {{personPointList.Point}}
-            </td>
-            <td>
-                {{row.AveragePointByQuery}}
-            </td>
-        </tr>
-        <tr>
-            <td>Общее количество баллов</td>
-            <td ng-repeat="persSumm in detailReport.Summary">
-                {{persSumm.SumPoint}}
-            </td>
-            <td>
-                {{averageSumm}}
-            </td>
-        </tr>
-    </table>
+                <tr ng-repeat="row in detailReport.Row">
+                    <td>
+                        {{row.Query.Text}}
+                    </td>
+                    <td ng-repeat="personPointList in row.PersonPointList">
+                        {{personPointList.Point}}
+                    </td>
+                    <td>
+                        {{row.AveragePointByQuery}}
+                    </td>
+                </tr>
+                <tr style="font-weight: bold;">
+                    <td>Общее количество баллов</td>
+                    <td ng-repeat="persSumm in detailReport.Summary">
+                        {{persSumm.SumPoint}}
+                    </td>
+                    <td>
+                        {{averageSumm}}
+                    </td>
+                </tr>
+            </table>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
 </div>

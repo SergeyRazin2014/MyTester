@@ -11,5 +11,7 @@ app.controller('loginCtrl', function ($scope, $http, $rootScope) {
     $scope.saveFullName = function() {
         $rootScope.person = $scope.person;
     };
+
+    
     
 }); 

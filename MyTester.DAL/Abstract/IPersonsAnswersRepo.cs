@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MyTester.Domain;
 
-namespace DAL.Abstract
+namespace MyTester.DAL.Abstract
 {
-    public interface IPersonRepo
+    public interface IPersonsAnswersRepo
     {
-        List<Person> GetAll();
-
-        void Add(Person person);
-
         void ClearResult();
     }
 }

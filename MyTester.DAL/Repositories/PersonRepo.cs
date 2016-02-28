@@ -28,5 +28,14 @@ namespace MyTester.DAL.Repositories
         }
 
 
+        public void ClearResult()
+        {
+            _db.Database.ExecuteSqlCommand("delete from PersonsAnswers");
+            _db.Database.ExecuteSqlCommand("delete from People");
+            
+        }
+
+
+
     }
 }

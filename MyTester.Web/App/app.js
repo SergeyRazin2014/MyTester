@@ -1,4 +1,4 @@
-﻿var app = angular.module('app', ['ngRoute']);
+﻿var app = angular.module('app', ['ngRoute', 'ngAnimate']);
 
 app.config(function ($routeProvider) {
 
@@ -7,7 +7,8 @@ app.config(function ($routeProvider) {
         .when('/Exam', { templateUrl: 'Exam/Index.html', controller: '' })
         .when('/SummaryReport', { templateUrl: 'Reports/SummaryReport/Index.html', controller: '' })
         .when('/PersonAverageReport', { templateUrl: 'Reports/PersonAverageReport/Index.html', controller: '' })
-    .when('/DetailReport', { templateUrl: 'Reports/DetailReport/Index.html', controller: '' })
+        .when('/DetailReport', { templateUrl: 'Reports/DetailReport/Index.html', controller: '' })
+        .when('/Admin', { templateUrl: 'Admin/Index.html', controller: '' })
 
     $routeProvider.otherwise({ redirectTo: '/Login' });
 });

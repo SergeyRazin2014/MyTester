@@ -19,6 +19,10 @@ namespace MyTester.Controllers
             _personRepo.Add(person);
         }
 
+        public void ClearResult()
+        {
+            _personRepo.ClearResult();
+        }
        
     }
 }

@@ -99,6 +99,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Admin\AdminCtrl.js" />
+    <Content Include="App\Admin\Index.html" />
     <Content Include="App\app.js" />
     <Content Include="App\Exam\ExamCtrl.js" />
     <Content Include="App\Exam\Index.html" />
@@ -111,11 +113,15 @@
     <Content Include="App\Reports\PersonAverageReport\PersonAverageReportCtrl.js" />
     <Content Include="App\Reports\SummaryReport\Index.html" />
     <Content Include="App\Reports\SummaryReport\SummaryReportCtrl.js" />
+    <Content Include="App\_angular\services\modalWindowService\modalWindowCtrl.js" />
+    <Content Include="App\_angular\services\modalWindowService\modalWindowsService.js" />
+    <Content Include="App\_angular\services\modalWindowService\yesNoCancelModalWindow.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -163,7 +169,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\_angular\services\" />
     <Folder Include="App_Data\" />
     <Folder Include="Views\Person\" />
     <Folder Include="Views\Query\" />

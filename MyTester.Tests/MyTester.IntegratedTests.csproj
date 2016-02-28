@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntegratedTests\PersonRepoTests.cs" />
+    <Compile Include="IntegratedTests\PersonsAnswersRepoTests.cs" />
     <Compile Include="IntegratedTests\QueryRepoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
